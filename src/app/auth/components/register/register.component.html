@@ -9,9 +9,10 @@
           <a href="">Have an account?</a>
         </p>
 
-        <ul class="error-messages">
-          <li>That email is already taken</li>
-        </ul>
+        <app-backend-error-messages
+          *ngIf='backendErrors$ | async'
+          [backendErrors]='backendErrors$ | async'>
+        </app-backend-error-messages>
 
         <form [formGroup]='form' (ngSubmit)='onSubmit()'>
           <fieldset class="form-group">
