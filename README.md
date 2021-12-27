@@ -2,11 +2,20 @@
 
 ## Description
 
+### Contract
+
+The module is a separate page in the application.
+Each module includes routes, types, components, services and store.
+Common modules and components are located in the "shared" directory.
+
+### TechStack
+
 * RealWorld API specification
 * TypeScript
 * Angular
 * RxJS
 * NgRx
+* Prettier
 
 ## Running the app
 
