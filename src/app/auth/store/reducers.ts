@@ -1,6 +1,9 @@
 import { AuthStateInterface } from '../types/authState.interface'
 import { Action, createReducer, on } from '@ngrx/store'
-import { registerAction } from './actions'
+import {
+  registerAction,
+  registerSuccessAction,
+} from './actions/register.action'
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
@@ -13,6 +16,13 @@ const authReducer = createReducer(
     (state): AuthStateInterface => ({
       ...state,
       isSubmitting: true,
+    })
+  ),
+  on(
+    registerSuccessAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isSubmitting: false,
     })
   )
 )

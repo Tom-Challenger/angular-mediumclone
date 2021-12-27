@@ -7,6 +7,8 @@ import { AuthRoutingModule } from './auth-routing.module'
 import { RegisterComponent } from './components/register/register.component'
 import { reducers } from './store/reducers'
 import { AuthService } from './services/auth/auth.service'
+import { EffectsModule } from '@ngrx/effects'
+import { RegisterEffect } from './store/effects/register.effect'
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -15,6 +17,7 @@ import { AuthService } from './services/auth/auth.service'
     AuthRoutingModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([RegisterEffect]),
   ],
   providers: [AuthService],
 })
