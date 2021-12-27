@@ -4,6 +4,8 @@ import { select, Store } from '@ngrx/store'
 import { registerAction } from '../../store/actions'
 import { Observable } from 'rxjs'
 import { isSubmittingSelector } from '../../store/selectors'
+import { AuthService } from '../../services/auth/auth.service'
+import { CurrentUserInterface } from '../../../shared/types/currentUser.interface'
 
 @Component({
   selector: 'app-register',
@@ -14,7 +16,11 @@ export class RegisterComponent implements OnInit {
   form: FormGroup
   isSubmitting$: Observable<boolean>
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm()
@@ -41,5 +47,10 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     console.log(this.form.valid)
     this.store.dispatch(registerAction(this.form.value))
+    this.authService
+      .register(this.form.value)
+      .subscribe((currentUser: CurrentUserInterface) => {
+        console.log('currentUser', currentUser)
+      })
   }
 }

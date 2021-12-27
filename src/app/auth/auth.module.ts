@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store'
 import { AuthRoutingModule } from './auth-routing.module'
 import { RegisterComponent } from './components/register/register.component'
 import { reducers } from './store/reducers'
+import { AuthService } from './services/auth/auth.service'
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -15,5 +16,6 @@ import { reducers } from './store/reducers'
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
   ],
+  providers: [AuthService],
 })
 export class AuthModule {}
