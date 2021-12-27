@@ -8,6 +8,7 @@ import {
   registerFailureAction,
   registerSuccessAction,
 } from '../actions/register.action'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Injectable()
 export class RegisterEffect {
@@ -20,8 +21,14 @@ export class RegisterEffect {
             return registerSuccessAction({ currentUser })
           }),
 
-          catchError(() => {
-            return of(registerFailureAction())
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              /**
+               * HttpErrorResponse.error is bodyResponse
+               * and contain errors object
+               */
+              registerFailureAction({ errors: errorResponse.error.errors })
+            )
           })
         )
       })
