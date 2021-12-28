@@ -2,24 +2,26 @@
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/']">medium</a>
     <ul class="nav navbar-nav pull-xs-right">
+      <!-- Add "active" class when you're on that page" -->
       <li class="nav-item">
-        <!-- Add "active" class when you're on that page" -->
-        <a class="nav-link active" [routerLink]="['/']">Home</a>
+        <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          Home
+        </a>
       </li>
 
       <ng-container *ngIf='isLoggedIn$ | async'>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/article/new']">
+          <a class="nav-link" [routerLink]="['/article/new']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
             <i class="ion-compose"></i>&nbsp;New Article
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/settings']">
+          <a class="nav-link" [routerLink]="['/settings']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
             <i class="ion-compose"></i>&nbsp;Settings
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/profiles', (currentUser$ | async).username]">
+          <a class="nav-link" [routerLink]="['/profiles', (currentUser$ | async).username]" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
             <img class='user-pic' [src]='(currentUser$ | async).image' alt='avatar'>&nbsp; {{ (currentUser$ | async).username }}
           </a>
         </li>
@@ -27,12 +29,12 @@
 
       <ng-container *ngIf='isAnonymous$ | async'>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/login']">
+          <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
             Sing In
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/register']">
+          <a class="nav-link" [routerLink]="['/register']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
             Sing Up
           </a>
         </li>
