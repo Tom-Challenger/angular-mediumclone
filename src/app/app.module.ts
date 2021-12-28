@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module'
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module'
 import { PersistenceService } from './shared/services/persistence.service'
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor'
+import { GlobalFeedModule } from './global-feed/global-feed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor'
       logOnly: environment.production,
     }),
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [
     PersistenceService,
