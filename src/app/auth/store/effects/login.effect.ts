@@ -20,7 +20,7 @@ export class LoginEffect {
       switchMap(({ request }) => {
         return this.authService.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
-            this.persistenceService.set('token', currentUser.token)
+            this.persistenceService.set('accessToken', currentUser.token)
             return loginSuccessAction({ currentUser })
           }),
 
