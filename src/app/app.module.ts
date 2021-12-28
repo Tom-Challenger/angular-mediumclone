@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { EffectsModule } from '@ngrx/effects'
+import { PersistenceService } from './shared/services/persistence.service'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { EffectsModule } from '@ngrx/effects'
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [PersistenceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
