@@ -11,9 +11,10 @@ import { EffectsModule } from '@ngrx/effects'
 import { RegisterEffect } from './store/effects/register.effect'
 import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module'
 import { LoginEffect } from './store/effects/login.effect'
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
