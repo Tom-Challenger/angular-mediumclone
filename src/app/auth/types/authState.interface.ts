@@ -3,6 +3,7 @@ import { BackendErrorsInterface } from '../../shared/types/backendErrors.interfa
 
 export interface AuthStateInterface {
   isSubmitting: boolean
+  isLoading: boolean
   currentUser: CurrentUserInterface | null
   validationErrors: BackendErrorsInterface | null
   /**
