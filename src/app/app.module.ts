@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { EffectsModule } from '@ngrx/effects'
 import { PersistenceService } from './shared/services/persistence.service'
+import { TopBarModule } from './shared/modules/top-bar/top-bar.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { PersistenceService } from './shared/services/persistence.service'
       maxAge: 25,
       logOnly: environment.production,
     }),
+    TopBarModule,
   ],
   providers: [PersistenceService],
   bootstrap: [AppComponent],

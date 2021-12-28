@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/']">medium</a>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <!-- Add "active" class when you're on that page" -->
+        <a class="nav-link active" [routerLink]="['/']">Home</a>
+      </li>
+
+      <ng-container *ngIf='isLoggedIn$ | async'>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/article/new']">
+            <i class="ion-compose"></i>&nbsp;New Article
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/settings']">
+            <i class="ion-compose"></i>&nbsp;Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profiles', (currentUser$ | async).username]">
+            <img class='user-pic' [src]='(currentUser$ | async).image' alt='avatar'>&nbsp; {{ (currentUser$ | async).username }}
+          </a>
+        </li>
+      </ng-container>
+
+      <ng-container *ngIf='isAnonymous$ | async'>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">
+            Sing In
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/register']">
+            Sing Up
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>
