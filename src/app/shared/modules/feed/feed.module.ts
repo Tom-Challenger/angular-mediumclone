@@ -5,6 +5,8 @@ import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
 import { EffectsModule } from '@ngrx/effects'
 import { GetFeedEffect } from './store/effects/getFeed.effect'
+import { FeedService } from './services/feed.service'
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [FeedComponent],
@@ -12,7 +14,9 @@ import { GetFeedEffect } from './store/effects/getFeed.effect'
     CommonModule,
     StoreModule.forFeature('feed', reducers),
     EffectsModule.forFeature([GetFeedEffect]),
+    RouterModule,
   ],
   exports: [FeedComponent],
+  providers: [FeedService],
 })
 export class FeedModule {}
