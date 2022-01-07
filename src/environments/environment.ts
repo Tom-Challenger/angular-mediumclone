@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'https://api.realworld.io/api'
-};
+  baseApiUrl: 'https://api.realworld.io/api',
+  limit: 10,
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
