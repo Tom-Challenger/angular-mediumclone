@@ -10,6 +10,7 @@ import { ErrorMessageModule } from '../shared/modules/error-message/error-messag
 import { LoadingModule } from '../shared/modules/loading/loading.module'
 import { ArticleService } from '../shared/services/article.service'
 import { ArticleRoutingModule } from './article-routing.module'
+import { TagListModule } from '../shared/modules/tag-list/tag-list.module'
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -21,6 +22,7 @@ import { ArticleRoutingModule } from './article-routing.module'
     EffectsModule.forFeature([GetArticleEffect]),
     ErrorMessageModule,
     LoadingModule,
+    TagListModule,
   ],
   providers: [ArticleService],
 })
