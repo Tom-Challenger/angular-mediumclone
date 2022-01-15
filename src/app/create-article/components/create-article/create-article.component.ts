@@ -1,18 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core'
-import { ArticleInputInterface } from '../../types/articleInput.interface'
-import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
   styleUrls: ['./create-article.component.scss'],
 })
-export class CreateArticleComponent implements OnInit {
-  @Input('initialValues') initialValuesProps: ArticleInputInterface
-  @Input('isSubmitting') isSubmittingProps: boolean
-  @Input('errors') errors: BackendErrorsInterface | null
+export class CreateArticleComponent {
+  initialValues = {
+    title: 'Foo',
+    description: 'Bar',
+    body: 'baz',
+    tagList: ['1', '2', '3'],
+  }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  onSubmit(res: any): void {
+    console.log('onSubmit: ', res)
+  }
 }
