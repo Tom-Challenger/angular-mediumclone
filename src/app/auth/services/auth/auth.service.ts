@@ -6,6 +6,7 @@ import { map, Observable } from 'rxjs'
 import { environment } from '../../../../environments/environment'
 import { AuthResponseInterface } from '../../types/authResponse.interface'
 import { LoginRequestInterface } from '../../types/loginRequestInterface'
+import { CurrentUserInputInterface } from '../../../shared/types/currentUserInput.interface'
 
 @Injectable()
 export class AuthService {
@@ -32,5 +33,13 @@ export class AuthService {
   getCurrentUser(): Observable<CurrentUserInterface> {
     const url = environment.baseApiUrl + '/user'
     return this.http.get(url).pipe(map(this.getUser))
+  }
+
+  // currentUser..Input - объект для backend с постфиксом 'Input'
+  updateCurrentUser(
+    currentUserInput: CurrentUserInputInterface
+  ): Observable<CurrentUserInterface> {
+    const url = environment.baseApiUrl + '/user'
+    return this.http.put(url, currentUserInput).pipe(map(this.getUser))
   }
 }

@@ -13,6 +13,7 @@ import { BackendErrorMessagesModule } from '../shared/modules/backend-error-mess
 import { LoginEffect } from './store/effects/login.effect'
 import { LoginComponent } from './components/login/login.component'
 import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect'
+import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect'
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -25,6 +26,7 @@ import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect'
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
     ]),
     BackendErrorMessagesModule,
   ],
