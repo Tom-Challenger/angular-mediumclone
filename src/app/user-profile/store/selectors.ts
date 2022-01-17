@@ -17,7 +17,7 @@ export const errorSelector = createSelector(
   (userProfileState: UserProfileStateInterface) => userProfileState.error
 )
 
-export const articleSelector = createSelector(
+export const userProfileSelector = createSelector(
   userProfileFeatureSelector,
   (userProfileState: UserProfileStateInterface) => userProfileState.data
 )

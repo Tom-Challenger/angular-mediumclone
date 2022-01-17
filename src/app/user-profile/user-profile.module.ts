@@ -7,6 +7,8 @@ import { EffectsModule } from '@ngrx/effects'
 import { GetUserProfileEffect } from './store/effects/getUserProfile.effect'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
+import { FeedModule } from '../shared/modules/feed/feed.module'
+import { UserProfileService } from './servives/user-profile.service'
 
 @NgModule({
   declarations: [UserProfileComponent],
@@ -15,6 +17,8 @@ import { reducers } from './store/reducers'
     UserProfileRoutingModule,
     StoreModule.forFeature('userProfile', reducers),
     EffectsModule.forFeature([GetUserProfileEffect]),
+    FeedModule,
   ],
+  providers: [UserProfileService],
 })
 export class UserProfileModule {}
